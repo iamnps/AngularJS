@@ -19,8 +19,27 @@
 	</p>
 </div>
  -->
+ <!-- 
 <div ng-app="">
 	<p> my first expression : {{5 + 5}} </p>
 </div>
+ -->
+
+<div ng-app="myApp" ng-controller="myCtrl">
+firstName: <input type="text" ng-model="firstName" /><br>
+lastName: <input type="text" ng-model="lastName" /><br>
+
+name is: {{firstName + " " + lastName}}
+
+</div> 
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope){
+	$scope.firstName = "peishen";
+	$scope.lastName = "nie";
+})
+</script>
+ 
 </body>
 </html>
