@@ -5,10 +5,20 @@
 <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
 <title>Insert title here</title>
 </head>
+<style>
+input.ng-invalid {
+	background-color: lightblue;
+}
+
+input.ng-dirty {
+	background-color: yellow;
+}
+</style>
+
 <body>
 <!-- 
 <div ng-app="">
- 	<p>名字 : <input type="text" ng-model="name"></p>
+ 	<p>name : <input type="text" ng-model="name"></p>
  	<h1>Hello {{name}}</h1>
 </div>
  -->
@@ -24,7 +34,7 @@
 	<p> my first expression : {{5 + 5}} </p>
 </div>
  -->
-
+<!-- 
 <div ng-app="myApp" ng-controller="myCtrl">
 firstName: <input type="text" ng-model="firstName" /><br>
 lastName: <input type="text" ng-model="lastName" /><br>
@@ -40,6 +50,38 @@ app.controller('myCtrl', function($scope){
 	$scope.lastName = "nie";
 })
 </script>
+ -->
  
+<!-- 
+<div ng-app="myApp" ng-controller="myCtrl">
+name:<input ng-model="name" />
+<h1>your input:{{name}}</h1>
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope){
+	$scope.name = "peishen";
+})
+</script>
+  -->
+
+<!-- 
+<form ng-app="" name="myForm">
+Email:
+<input type="email" name="myAddress" ng-model="text" />
+<span ng-show="myForm.myAddress.$error.email">this is error email address</span>
+</form>  
+ -->
+ 
+<form ng-app="" name="myForm" ng-init="myText = 'text@runoob.com'">
+Email:
+<input type="email" name="myAddress" ng-model="myText" required />
+<h1>status:</h1>
+{{myForm.myAddress.$valid}}
+{{myForm.myAddress.$dirty}}
+{{myForm.myAddress.$touched}}
+</form>
+
 </body>
 </html>
